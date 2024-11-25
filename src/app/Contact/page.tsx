@@ -25,7 +25,7 @@ export default function Contact() {
     }
   }, [])
 
-  const onSubmit = (data) => {
+  const onSubmit = (data : any) => {
     console.log(data)
   }
 
@@ -97,7 +97,7 @@ export default function Contact() {
                     placeholder="Your Name"
                     {...register("name", { required: "Name is required" })}
                   />
-                  {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+                  {errors.name && <p className="text-red-500 text-sm"></p>}
                 </div>
                 <div>
                   <Input
@@ -111,14 +111,14 @@ export default function Contact() {
                       }
                     })}
                   />
-                  {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+                  {errors.email && <p className="text-red-500 text-sm"></p>}
                 </div>
                 <div>
                   <Textarea
                     placeholder="Your Message"
                     {...register("message", { required: "Message is required" })}
                   />
-                  {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
+                  {errors.message && <p className="text-red-500 text-sm"></p>}
                 </div>
                 <Button type="submit" className="w-full bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800">
                   Send Message
