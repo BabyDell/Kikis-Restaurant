@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -705,81 +705,83 @@ export default function Menu() {
   ];
 
   return (
-    <div className="bg-[url('/images/KikisBGTexture.jpg')] bg-repeat md:ml-20">
-      <header
-        className={`relative overflow-hidden transition-all duration-1000 ease-in-out ${
-          isExpanded ? "h-64" : "h-10"
-        }`}
-        aria-label="Menu header"
-      >
-        <Image
-          src="/images/KikisHomePage.webp"
-          alt="Header"
-          width={1024}
-          height={256}
-          className="absolute inset-0 w-full h-full object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
-        <div className="relative h-full flex items-center justify-center">
-          <h1
-            className={`text-4xl font-bold text-white transition-opacity duration-500 ${
-              showText ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            Our Menu
-          </h1>
-        </div>
-      </header>
-
-      <section className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-center space-x-6 py-10 flex-wrap">
-          {menuItems.map((item) => (
-            <motion.div
-              key={item.id}
-              className="relative mb-4"
-              whileTap={{ scale: 0.95 }}
+    <Suspense>
+      <div className="bg-[url('/images/KikisBGTexture.jpg')] bg-repeat md:ml-20">
+        <header
+          className={`relative overflow-hidden transition-all duration-1000 ease-in-out ${
+            isExpanded ? "h-64" : "h-10"
+          }`}
+          aria-label="Menu header"
+        >
+          <Image
+            src="/images/KikisHomePage.webp"
+            alt="Header"
+            width={1024}
+            height={256}
+            className="absolute inset-0 w-full h-full object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+          <div className="relative h-full flex items-center justify-center">
+            <h1
+              className={`text-4xl font-bold text-white transition-opacity duration-500 ${
+                showText ? "opacity-100" : "opacity-0"
+              }`}
             >
-              <Button
-                onClick={() =>
-                  setActiveMenu(item.id as "dinner" | "drink" | "happyHour")
-                }
-                className={`relative overflow-hidden group bg-gradient-to-r from-gray-500 to-gray-700 text-white py-6 px-8 font-bold font-serif tracking-wider text-xl rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50`}
-                aria-label={`View ${item.label}`}
-              >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-amber-500 to-amber-700"
-                  initial={false}
-                  animate={{
-                    opacity: activeMenu === item.id ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                />
-                <span className="relative z-10">{item.label}</span>
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-white"
-                  initial={false}
-                  animate={{
-                    scaleX: activeMenu === item.id ? 1 : 0,
-                    opacity: activeMenu === item.id ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                />
-              </Button>
-            </motion.div>
-          ))}
-        </div>
-        <div className="py-8">
-          <div className="text-2xl font-bold mb-4 text-center">
-            {menuData[activeMenu].title}
+              Our Menu
+            </h1>
           </div>
-          <div className="columns-1 lg:columns-2 gap-5">
-            {menuData[activeMenu].menu.map((section, index) => (
-              <MenuSection key={index} {...section} />
+        </header>
+
+        <section className="container mx-auto px-4 py-8">
+          <div className="flex items-center justify-center space-x-6 py-10 flex-wrap">
+            {menuItems.map((item) => (
+              <motion.div
+                key={item.id}
+                className="relative mb-4"
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  onClick={() =>
+                    setActiveMenu(item.id as "dinner" | "drink" | "happyHour")
+                  }
+                  className={`relative overflow-hidden group bg-gradient-to-r from-gray-500 to-gray-700 text-white py-6 px-8 font-bold font-serif tracking-wider text-xl rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50`}
+                  aria-label={`View ${item.label}`}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-amber-500 to-amber-700"
+                    initial={false}
+                    animate={{
+                      opacity: activeMenu === item.id ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <span className="relative z-10">{item.label}</span>
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-white"
+                    initial={false}
+                    animate={{
+                      scaleX: activeMenu === item.id ? 1 : 0,
+                      opacity: activeMenu === item.id ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </Button>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-    </div>
+          <div className="py-8">
+            <div className="text-2xl font-bold mb-4 text-center">
+              {menuData[activeMenu].title}
+            </div>
+            <div className="columns-1 lg:columns-2 gap-5">
+              {menuData[activeMenu].menu.map((section, index) => (
+                <MenuSection key={index} {...section} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </Suspense>
   );
 }
