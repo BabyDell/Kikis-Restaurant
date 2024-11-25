@@ -25,8 +25,8 @@ export default function Contact() {
     }
   }, [])
 
-  const onSubmit = (data : any) => {
-    console.log(data)
+  const onSubmit = () => {
+    console.log("You sumbitted the form")
   }
 
   return (
