@@ -31,7 +31,7 @@ import {
           priority
           className="object-cover object-center"
         />
-          <Card className="absolute w-full sm:max-w-md max-w-sm  md:ml-10">
+          <Card className="absolute w-full max-w-[calc(100%-5rem)] sm:max-w-md   md:ml-10">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-center">
                 Make a Reservation
