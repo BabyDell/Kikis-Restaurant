@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./Components/NavBar";
-import { Playfair_Display, Open_Sans } from 'next/font/google'
+import { Playfair_Display, Open_Sans } from "next/font/google";
 import OpenTableSection from "./Components/OpenTableSection";
 import { Footer } from "./Components/Footer";
-
+import { Suspense } from "react";
 
 const playfair = Playfair_Display({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-playfair',
-})
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+});
 
 const openSans = Open_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-opensans',
-})
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-opensans",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,12 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${openSans.variable}`}>
-      <body 
-      >
-        <NavBar />
-        {children}
-        <OpenTableSection />
-        <Footer />
+      <body>
+        <Suspense>
+          <NavBar />
+          {children}
+          <OpenTableSection />
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );

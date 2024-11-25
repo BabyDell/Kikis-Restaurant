@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -705,7 +705,6 @@ export default function Menu() {
   ];
 
   return (
-    <Suspense>
       <div className="bg-[url('/images/KikisBGTexture.jpg')] bg-repeat md:ml-20">
         <header
           className={`relative overflow-hidden transition-all duration-1000 ease-in-out ${
@@ -782,6 +781,5 @@ export default function Menu() {
           </div>
         </section>
       </div>
-    </Suspense>
   );
 }
