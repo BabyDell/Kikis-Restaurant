@@ -68,7 +68,7 @@ export default function Home() {
             hospitality with delicious Italian flavors and craft cocktails. Come
             see what everyone is talking about.
           </motion.article>
-          <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8 mx-10 my-16">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8 mx-10 py-16">
             <motion.div
               ref={dish1Ref}
               className="w-full max-w-[450px]"
