@@ -733,18 +733,18 @@ export default function Menu() {
         </header>
 
         <section className="container mx-auto px-4 py-8">
-          <div className="flex items-center justify-center space-x-6 py-10 flex-wrap">
+          <div className="flex items-center justify-center gap-6 flex-wrap">
             {menuItems.map((item) => (
               <motion.div
                 key={item.id}
-                className="relative mb-4"
+                className="relative"
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
                   onClick={() =>
                     setActiveMenu(item.id as "dinner" | "drink" | "happyHour")
                   }
-                  className={`relative overflow-hidden group bg-gradient-to-r from-gray-500 to-gray-700 text-white py-6 px-8 font-bold font-serif tracking-wider text-xl rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50`}
+                  className={` relative overflow-hidden group bg-gradient-to-r from-gray-500 to-gray-700 text-white py-6 px-8 font-bold font-serif tracking-wider text-xl rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50 mx-auto`}
                   aria-label={`View ${item.label}`}
                 >
                   <motion.div

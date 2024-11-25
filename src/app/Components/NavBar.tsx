@@ -110,7 +110,7 @@ export default function AnimatedSideNav() {
             {isMobile && (
               <div
                 className={`flex-grow flex justify-center items-center ${
-                  isOpen ? "opacity-0 mt-3" : "opacity-100 delay-300"
+                  isOpen ? "opacity-0 mt-0 sm:mt-3" : "opacity-100 delay-300"
                 } transition-opacity  duration-300`}
               >
                 <Image

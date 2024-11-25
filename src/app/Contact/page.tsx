@@ -144,15 +144,15 @@ export default function Contact() {
                 title="Restaurant Location"
               ></iframe>
             </div>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-10">
               <Button
-                className="bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
+                className="text-xs sm:text-sm bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
                 onClick={() => window.open("https://www.google.com/maps/dir/?api=1&destination=Kiki's Dining & Drinks, 46660 Washington St #8, La Quinta, CA 92253", "_blank")}
               >
                 <MapPin className="mr-2 h-4 w-4" /> Get Directions
               </Button>
               <Button
-                className="bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
+                className="text-xs sm:text-sm bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
                 onClick={() => window.location.href = "tel:+17607778008"}
               >
                 <Phone className="mr-2 h-4 w-4" /> Call for Reservation
