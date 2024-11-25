@@ -1,7 +1,6 @@
 import { MTTImage } from "../Components/MTTImage";
 import Image from "next/image";
 import AnimatedHeader from "../Components/animatedHeader";
-import OpenTableSection from "../Components/OpenTableSection";
 
 const images = [
   {

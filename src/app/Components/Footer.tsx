@@ -40,7 +40,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-sm text-gray-400">
-          Copyright © {new Date().getFullYear()} by Kiki's La Quinta. All rights reserved. Site by Andy Felix
+          Copyright © {new Date().getFullYear()} by Kiki&apos;s La Quinta. All rights reserved. Site by Andy Felix
         </div>
       </div>
     </footer>
