@@ -1,67 +1,54 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { useForm } from "react-hook-form"
-import { MapPin, Phone } from 'lucide-react'
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
+import { MapPin, Phone } from "lucide-react";
+import AnimatedHeader from "../Components/animatedHeader";
 
 export default function Contact() {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const [showText, setShowText] = useState(false)
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showText, setShowText] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
-    setIsExpanded(true)
+    setIsExpanded(true);
     const textTimer = setTimeout(() => {
-      setShowText(true)
-    }, 1000)
+      setShowText(true);
+    }, 1000);
 
     return () => {
-      clearTimeout(textTimer)
-    }
-  }, [])
+      clearTimeout(textTimer);
+    };
+  }, []);
 
   const onSubmit = () => {
-    console.log("You sumbitted the form")
-  }
+    console.log("You sumbitted the form");
+  };
 
   return (
     <div className="bg-[url('/images/KikisBGTexture.jpg')] bg-repeat md:ml-20">
-      <header
-        className={`relative overflow-hidden transition-all duration-1000 ease-in-out ${
-          isExpanded ? "h-64" : "h-10"
-        }`}
-        aria-label="Contact header"
-      >
-        <Image
-          src="/images/KikisHomePage.webp"
-          alt="Contact Header"
-          width={1024}
-          height={256}
-          className="absolute inset-0 w-full h-full object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
-        <div className="relative h-full flex items-center justify-center">
-          <h1
-            className={`text-4xl font-bold text-white transition-opacity duration-500 ${
-              showText ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            Contact Us
-          </h1>
-        </div>
-      </header>
+      <AnimatedHeader
+        imageSrc="/images/KikisHomePage.webp"
+        altText="Kiki's Dining & Drinks"
+        headerText="Contact Us"
+      />
 
       <section className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           <Card className="flex-1 border-customYellow border-opacity-50 rounded-none">
             <CardHeader>
-              <CardTitle className="text-customYellow font-serif tracking-wide">Contact Information</CardTitle>
+              <CardTitle className="text-customYellow font-serif tracking-wide">
+                Contact Information
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -88,7 +75,9 @@ export default function Contact() {
 
           <Card className="flex-1 border-customYellow border-opacity-50 rounded-none">
             <CardHeader>
-              <CardTitle className="text-customYellow font-serif tracking-wide">Send Us a Message</CardTitle>
+              <CardTitle className="text-customYellow font-serif tracking-wide">
+                Send Us a Message
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -103,12 +92,12 @@ export default function Contact() {
                   <Input
                     type="email"
                     placeholder="Your Email"
-                    {...register("email", { 
+                    {...register("email", {
                       required: "Email is required",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Invalid email address"
-                      }
+                        message: "Invalid email address",
+                      },
                     })}
                   />
                   {errors.email && <p className="text-red-500 text-sm"></p>}
@@ -116,11 +105,16 @@ export default function Contact() {
                 <div>
                   <Textarea
                     placeholder="Your Message"
-                    {...register("message", { required: "Message is required" })}
+                    {...register("message", {
+                      required: "Message is required",
+                    })}
                   />
                   {errors.message && <p className="text-red-500 text-sm"></p>}
                 </div>
-                <Button type="submit" className="w-full bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800">
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
+                >
                   Send Message
                 </Button>
               </form>
@@ -130,7 +124,9 @@ export default function Contact() {
 
         <Card className="mt-8 border-customYellow border-opacity-50 rounded-none">
           <CardHeader>
-            <CardTitle className="text-customYellow font-serif tracking-wide">Our Location</CardTitle>
+            <CardTitle className="text-customYellow font-serif tracking-wide">
+              Our Location
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="aspect-w-16 aspect-h-9 mb-4">
@@ -144,16 +140,21 @@ export default function Contact() {
                 title="Restaurant Location"
               ></iframe>
             </div>
-            <div className="flex justify-center gap-10">
+            <div className="flex justify-center gap-5 sm:gap-10">
               <Button
-                className="text-xs sm:text-sm bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
-                onClick={() => window.open("https://www.google.com/maps/dir/?api=1&destination=Kiki's Dining & Drinks, 46660 Washington St #8, La Quinta, CA 92253", "_blank")}
+                className="text-xs sm:text-sm bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-3 sm:px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
+                onClick={() =>
+                  window.open(
+                    "https://www.google.com/maps/dir/?api=1&destination=Kiki's Dining & Drinks, 46660 Washington St #8, La Quinta, CA 92253",
+                    "_blank"
+                  )
+                }
               >
                 <MapPin className="mr-2 h-4 w-4" /> Get Directions
               </Button>
               <Button
-                className="text-xs sm:text-sm bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
-                onClick={() => window.location.href = "tel:+17607778008"}
+                className="text-xs sm:text-sm bg-gradient-to-r from-amber-500 to-amber-700 text-white py-2 px-3 sm:px-4 rounded-lg transition-all duration-300 ease-out hover:from-amber-600 hover:to-amber-800"
+                onClick={() => (window.location.href = "tel:+17607778008")}
               >
                 <Phone className="mr-2 h-4 w-4" /> Call for Reservation
               </Button>
@@ -162,6 +163,5 @@ export default function Contact() {
         </Card>
       </section>
     </div>
-  )
+  );
 }
-

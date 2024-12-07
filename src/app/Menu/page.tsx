@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useSearchParams } from "next/navigation";
+import AnimatedHeader from "../Components/animatedHeader";
 
 type MenuItem = {
   name: string;
@@ -706,31 +707,7 @@ export default function Menu() {
 
   return (
       <div className="bg-[url('/images/KikisBGTexture.jpg')] bg-repeat md:ml-20">
-        <header
-          className={`relative overflow-hidden transition-all duration-1000 ease-in-out ${
-            isExpanded ? "h-64" : "h-10"
-          }`}
-          aria-label="Menu header"
-        >
-          <Image
-            src="/images/KikisHomePage.webp"
-            alt="Header"
-            width={1024}
-            height={256}
-            className="absolute inset-0 w-full h-full object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-          <div className="relative h-full flex items-center justify-center">
-            <h1
-              className={`text-4xl font-bold text-white transition-opacity duration-500 ${
-                showText ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              Our Menu
-            </h1>
-          </div>
-        </header>
+        <AnimatedHeader headerText="Our Menu" imageSrc="/images/KikisHomePage.webp" altText="Menu Image" />
 
         <section className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center gap-6 flex-wrap">

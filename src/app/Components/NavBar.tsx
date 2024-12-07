@@ -163,7 +163,7 @@ export default function AnimatedSideNav() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className={`flex flex-col ${
-                isMobile ? "min-h-dvh h-96  items-center mt-12" : ""
+                isMobile ? "min-h-dvh h-96  items-center mt-3" : ""
               }`}
             >
               <Image

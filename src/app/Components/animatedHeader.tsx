@@ -39,7 +39,7 @@ const AnimatedHeader: React.FC<HeaderSectionProps> = ({ imageSrc, altText, heade
           priority
         />
         <div className="absolute inset-0 bg-black bg-opacity-50" />
-        <div className="relative h-full flex items-center justify-center mt-6 md:mt-0">
+        <div className="relative h-full flex items-center justify-center mt-8 md:mt-0">
           <h1
             className={`text-4xl font-bold text-white transition-opacity duration-500 ${
               showText ? "opacity-100" : "opacity-0"
