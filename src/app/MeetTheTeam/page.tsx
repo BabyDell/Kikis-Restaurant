@@ -50,7 +50,7 @@ export default function ImageHoverGrid() {
         headerText={"Meet The Team"}
       />
       <Image
-        src="/images/MeetImages/KikisMeetALL.jpg"
+        src="/images/MeetImages/KikisMeetAll.jpg"
         alt="The Entire Team"
         width={1400}
         height={1400}
