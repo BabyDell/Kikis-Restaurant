@@ -1,10 +1,11 @@
+'use client'
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useForm } from "react-hook-form";
 import { MapPin, Phone } from "lucide-react";
+import { useForm } from "react-hook-form";
 import AnimatedHeader from "../Components/animatedHeader";
 
 export default function Contact() {
