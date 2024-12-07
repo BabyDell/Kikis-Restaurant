@@ -1,7 +1,5 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import Image from "next/image";
+'use client'
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -669,16 +667,12 @@ function MenuSection({ title, items }: MenuSection) {
 }
 
 export default function Menu() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [showText, setShowText] = useState(false);
+
   const [activeMenu, setActiveMenu] = useState<MenuType>("dinner");
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    setIsExpanded(true);
-    const textTimer = setTimeout(() => {
-      setShowText(true);
-    }, 1000);
+   
 
     const state = searchParams.get("state");
     if (
@@ -688,9 +682,6 @@ export default function Menu() {
       setActiveMenu(state);
     }
 
-    return () => {
-      clearTimeout(textTimer);
-    };
   }, [searchParams]);
 
   const menuData = {

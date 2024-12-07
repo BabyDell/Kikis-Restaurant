@@ -1,7 +1,4 @@
-"use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,24 +8,12 @@ import { MapPin, Phone } from "lucide-react";
 import AnimatedHeader from "../Components/animatedHeader";
 
 export default function Contact() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [showText, setShowText] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
-    setIsExpanded(true);
-    const textTimer = setTimeout(() => {
-      setShowText(true);
-    }, 1000);
-
-    return () => {
-      clearTimeout(textTimer);
-    };
-  }, []);
 
   const onSubmit = () => {
     console.log("You sumbitted the form");
